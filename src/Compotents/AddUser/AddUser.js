@@ -42,6 +42,7 @@ const AddUser = () => {
             {...register("paid", { maxLength: 20 })}
           />
         </div>
+
         {/* <input
 type="password"
 {...register("password", {

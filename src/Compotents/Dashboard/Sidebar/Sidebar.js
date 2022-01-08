@@ -44,29 +44,31 @@ const Sidebar = () => {
         </button>
       </Link>
 
-      <Link to="/UserInfoDash">
-        <button className="btn btn-success mt-3 btn-custom-wid">
-          Information
-        </button>
-      </Link>
       {isOwner && (
         <div>
-          <Link to="/Adduser">
+          <Link to="/UserInfoDash">
+            <button className="btn btn-success mt-3 btn-custom-wid">
+              Add Renter
+            </button>
+          </Link>
+          {/* <Link to="/Adduser">
             <button className="btn btn-success mt-3 btn-custom-wid">
               Add renter
             </button>
-          </Link>
+          </Link> */}
           <Link to="/Addproperty">
             <button className="btn btn-success mt-3 btn-custom-wid">
               Add Property
             </button>
           </Link>
+          <Link to="/Notification">
+            <button className="btn btn-success mt-3 btn-custom-wid">
+              Notification
+            </button>
+          </Link>
         </div>
       )}
 
-      <button className="btn btn-success mt-3 btn-custom-wid">
-        Notification
-      </button>
       <button
         className="btn btn-success mt-3 btn-custom-wid"
         onClick={handleLogout}

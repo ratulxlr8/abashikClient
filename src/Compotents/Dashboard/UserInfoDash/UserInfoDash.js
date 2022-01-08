@@ -1,10 +1,21 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { userContext } from "../../../App";
 import Sidebar from "../Sidebar/Sidebar";
 
 const UserInfoDash = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch("http://localhost:5000/renter", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  };
+
   return (
     <div>
       <div className="Back text-light ">
@@ -29,31 +40,60 @@ const UserInfoDash = () => {
 
             <div className="col-md-10">
               <p className="bg-dark p-3">
-                USER <span className="text-success"> USER</span>
+                asdsad <span className="text-success"> USER</span>
               </p>
               <div className="row">
-                <div className="col-md-3  ">
-                  <div className="bg-secondary text-center p-5">
-                    <p>USER USER</p>
-                    <p>00-/</p>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="col-md-12 mx-auto  my-auto">
+                    <div class="form-group">
+                      <label htmlFor="">Email</label>
+                      <input
+                        class="form-control"
+                        type="email"
+                        placeholder="email"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 40,
+                        })}
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label htmlFor="">Due</label>
+                      <input
+                        class="form-control"
+                        placeholder="due"
+                        type="number"
+                        {...register("due", { maxLength: 20 })}
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label htmlFor="">Paid</label>
+                      <input
+                        class="form-control"
+                        placeholder="paid"
+                        type="number"
+                        {...register("paid", { maxLength: 20 })}
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label htmlFor="">month</label>
+                      <select class="form-select" {...register("month")}>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                      </select>
+                    </div>
+
+                    {/* <input
+type="password"
+{...register("password", {
+  pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
+})}
+/> */}
+
+                    <input class="btn btn-primary" type="submit" />
                   </div>
-                </div>
-                <div className="col-md-3  ">
-                  <div className="bg-secondary text-center p-5">
-                    <p>USER Paid</p>
-                    <p>1000/-</p>
-                  </div>
-                </div>
-                <div className="col-md-3  ">
-                  <div className="bg-secondary text-center p-5">
-                    <p>USER</p>
-                  </div>
-                </div>
-                <div className="col-md-3  ">
-                  <div className="bg-secondary text-center p-5">
-                    <p>USER Payment</p>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

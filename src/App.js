@@ -14,10 +14,12 @@ import PrivateRoute from "./Compotents/PrivateRoute/PrivateRoute";
 import Dashboard from "./Compotents/Dashboard/Dashboard";
 import DashboardInfo from "./Compotents/Dashboard/DashboardInfo/DashboardInfo";
 import UserInfoDash from "./Compotents/Dashboard/UserInfoDash/UserInfoDash";
+import Notification from "./Compotents/Dashboard/Notification/Notification";
 import AddUser from "./Compotents/AddUser/AddUser";
 
 import Addproperty from "./Compotents/Addproperty/Addproperty";
 import Demo from "./Compotents/Demo/Demo";
+import BookPage from "./Compotents/BookPage/BookPage";
 export const userContext = createContext();
 
 function App() {
@@ -51,6 +53,9 @@ function App() {
           <Route path="/Addproperty">
             <Addproperty></Addproperty>
           </Route>
+          <Route path="/Notification">
+            <Notification></Notification>
+          </Route>
 
           <PrivateRoute path="/dashboard">
             <Dashboard />
@@ -58,6 +63,9 @@ function App() {
 
           <PrivateRoute path="/DashboardInfo">
             <DashboardInfo></DashboardInfo>
+          </PrivateRoute>
+          <PrivateRoute path="/BookPage">
+            <BookPage></BookPage>
           </PrivateRoute>
           <Route path="*">
             <h1>Not Found</h1>

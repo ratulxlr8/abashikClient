@@ -41,7 +41,7 @@ const Addproperty = () => {
               class="form-control"
               placeholder="due"
               type="number"
-              {...register("due", { maxLength: 20 })}
+              {...register("price", { maxLength: 20 })}
             />
           </div>
           <div class="form-group">
@@ -50,7 +50,7 @@ const Addproperty = () => {
               class="form-control"
               placeholder="Location"
               type="text"
-              {...register("paid", { maxLength: 20 })}
+              {...register("location", { maxLength: 20 })}
             />
           </div>
           <div class="form-group">

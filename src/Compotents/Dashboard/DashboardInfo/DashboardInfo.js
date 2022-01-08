@@ -58,7 +58,7 @@ const DashboardInfo = () => {
 
   console.log(totalPaid);
   console.log(totalDue);
-
+  var colCount = 0;
   return (
     <div>
       <div className="Back text-light ">
@@ -138,18 +138,30 @@ const DashboardInfo = () => {
                   <h3 className="text-center border bg-danger col-md-4">
                     Total Due:- {totalDue}
                   </h3>
-                  {renterView.map((viewData) => (
-                    <div className="bg-dark mb-2">
-                      <div className="px-5 py-3 text-left">
-                        <p>Email:{viewData.email}</p>
-                        <p> Due:{viewData.due}</p>
-                        <p>
-                          Paid:
-                          {viewData.paid}
-                        </p>
-                      </div>
+                  <div className="bg-dark mb-2">
+                    <div className="px-5 py-3 text-left">
+                      <table class="table text-light">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Due</th>
+                            <th scope="col">Paid</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {renterView.map((viewData) => (
+                            <tr>
+                              <th scope="row">{colCount + 1}</th>
+                              <td>{viewData.email}</td>
+                              <td>{viewData.due}/-</td>
+                              <td>{viewData.paid}/-</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             )}

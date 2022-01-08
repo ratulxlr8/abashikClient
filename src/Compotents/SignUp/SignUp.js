@@ -31,7 +31,7 @@ const SignUp = () => {
         setLoggedInUser(signedInUser);
         //history.replace(from);
 
-        history.push("/dashboard");
+        history.push("/");
       })
 
       .catch((error) => {
