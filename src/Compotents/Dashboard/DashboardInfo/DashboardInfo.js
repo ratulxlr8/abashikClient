@@ -132,6 +132,12 @@ const DashboardInfo = () => {
                   </h1>
                 </div>
                 <div>
+                  <h3 className="text-center border bg-success col-md-4">
+                    Total Paid:- {totalPaid}
+                  </h3>{" "}
+                  <h3 className="text-center border bg-danger col-md-4">
+                    Total Due:- {totalDue}
+                  </h3>
                   {renterView.map((viewData) => (
                     <div className="bg-dark mb-2">
                       <div className="px-5 py-3 text-left">
